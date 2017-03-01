@@ -44,25 +44,25 @@ player.prototype.update = function(move) {
     if(this.top == true) {
       return null;
     }
-    this.y -= 20;
+    this.y -= 40;
   }
   else if(move == 'down') {
     if(this.bottom == true){
       return null;
     }
-    this.y += 20;
+    this.y += 40;
   }
   else if(move == 'left') {
     if(this.left == true){
       return null;
     }
-    this.x -= 20;
+    this.x -= 40;
   }
   else if(move == 'right') {
     if(this.right == true){
       return null;
     }
-    this.x += 20;
+    this.x += 40;
   }
   else {
     return null;
