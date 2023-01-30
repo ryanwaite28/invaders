@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <title>Invaders</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://ryanwaite28.github.io/my-cdn/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://ryanwaite28.github.io/my-cdn/css/emerald.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="only screen and (max-width: 785px)"
+      href="mobile-style.css"
+    />
+    <link rel="icon" type="image/png" href="ghost-512.png" />
+    <script src="https://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
+    <script src="https://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
+    <script src="https://ryanwaite28.github.io/my-cdn/js/emerald.js"></script>
+  </head>
 
-	<head>
+  <body>
+    <div id="game-div">
+      <h1 class="text-center text-white"><b>INVADERS</b></h1>
+      <img class="middlr" src="ghost-512.png" height="30px" width="30px" />
 
-		<title>Invaders</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" type="text/css" href="https://ryanwaite28.github.io/my-cdn/css/bootstrap.css"/>
-		<link rel="stylesheet" type="text/css" href="https://ryanwaite28.github.io/my-cdn/css/emerald.css"/>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" type="text/css" media="only screen and (max-width: 785px)" href="mobile-style.css">
-		<link rel="icon" type="image/png" href="ghost-512.png"/>
-		<script src="https://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
-		<script src="https://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
-		<script src="https://ryanwaite28.github.io/my-cdn/js/emerald.js"></script>
-	</head>
+      <div class="button-container">
+        <button id="play-pause-btn">Pause</button>
+      </div>
 
-	<body>
+      <hr />
+      <br />
 
-		<div id="game-div">
+      <h3 class="text-center text-white" id="msg">
+        Game Starts In <span id="seconds-left"></span> Seconds
+      </h3>
 
-		<h1 class="text-center"><b>INVADERS</b></h1>
-		<img class="middlr" src="ghost-512.png" height="30px" width="30px"/>
-		<hr><br>
+      <canvas class="middlr" id="game-board" height="500px" width="1000px">
+      </canvas>
+      <br />
 
-		<h3 class="text-center" id="msg">Game Starts In 3 Seconds</h3>
+      <h3 class="text-center text-white">
+        <b>Score:</b><br />
+        <span id="score">0</span>
+      </h3>
 
-		<canvas class="middlr" id="game-board" height="500px" width="1000px"> </canvas>
-		<br>
+      <div id="jewels-container">
 
-		<h3 class="text-center"><b>Score:</b><br> <span id="score">0</span></h3>
+      </div>
+    </div>
 
-		</div>
+    <img id="gmov-img" src="game-over.jpg" />
 
-			<img id="gmov-img" src="game-over.jpg"/>
-
-		<script src="resources.js"></script>
-		<script src="game.js"></script>
-		<script src="engine.js"></script>
-
-	</body>
-
+    <script src="resources.js"></script>
+    <script src="game.js"></script>
+    <script src="engine.js"></script>
+  </body>
 </html>

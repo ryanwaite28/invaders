@@ -9,9 +9,16 @@ var engine = (function(global){
 	var lastTime;
 	global.ctx = ctx;
 
+  let paused = false;
+
+  $('#play-pause-btn').click((e) => {
+    paused = !paused;
+    $('#play-pause-btn').text(paused ? 'Play' : 'Pause');
+  });
+
 	function main() {
 
-		//console.log('Main Called');
+		// console.log('Main Called');
 
 		var now = Date.now();
 		// Delta Ticks
@@ -25,14 +32,22 @@ var engine = (function(global){
 
 	function render(dt) {
 
+    if (paused) {
+      return;
+    }
+
 		ctx.drawImage(gameBoard, 0, 0);
 
-		Player.render();
-		Enemy.render();
-		Enemy.update(dt);
-		Jewel.render();
-		Jewel.collected();
+		player.render();
+		player.update();
 
+		enemy.render();
+		enemy.update(dt);
+
+		jewel.render();
+		jewel.collected();
+    
+    updateCollectedJewels();
 	}
 
 	function init() {
@@ -41,9 +56,17 @@ var engine = (function(global){
 		main();
 	}
 
-	setTimeout(function(){
-		init();
-		$('#msg').text('');
-	},3000);
+  let seconds_left = 3;
+  $('#seconds-left').text(seconds_left);
+  
+	let interval = setInterval(function() {
+    seconds_left = seconds_left - 1;
+    $('#seconds-left').text(seconds_left);
+    if (seconds_left === 0) {
+      $('#msg').text('');
+      clearInterval(interval);
+      init();
+    }
+	}, 1000);
 
 })(this);
