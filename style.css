@@ -1,6 +1,9 @@
 /* New Style */
 body {
   background-color: black;
+}
+
+.text-white {
   color: white;
 }
 
@@ -23,4 +26,23 @@ body {
   max-height: 60vh;
   display: none;
   margin: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+#play-pause-btn {
+  border-radius: 3px;
+  padding: 10px 20px;
+  background-color: royalblue;
+  border: 0;
+  color: white;
+}
+
+.margin--bottom-5 {
+  margin-bottom: 15;
 }
